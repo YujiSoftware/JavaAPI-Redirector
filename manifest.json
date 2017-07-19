@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "JavaAPI-Redirector",
   "version": "1.0",
-
-  "description": "Redirect to the latest Java SE API document.",
+  "description": "__MSG_extDescription__",
+  "default_locale": "en",
 
   "icons": {
     "48": "icons/icon.png"
