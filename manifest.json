@@ -5,10 +5,20 @@
   "description": "__MSG_extDescription__",
   "default_locale": "en",
 
+  "applications": {
+    "gecko": {
+      "id": "{592a7624-ad88-4d43-aec3-e940dcad653a}"
+    }
+  },
+
   "icons": {
     "48": "icons/icon.png",
     "128": "icons/icon_128.png"
   },
+
+  "permissions": [
+    "storage"
+  ],
 
   "content_scripts": [
     {
@@ -21,5 +31,10 @@
       "js": ["document-jp.js"],
       "run_at": "document_start"
     }
-  ]
+  ],
+
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  }
 }
