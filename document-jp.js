@@ -6,8 +6,8 @@ if(result != null){
     redirectTo: 'latest',
   }, function(items) {
     var redirectTo = items.redirectTo;
-    if(redirectTo === "latest" || redirectTo === "10"){
-      redirectTo = "9";
+    if(redirectTo === "latest"){
+      redirectTo = "10";
     }
 
     if(version != redirectTo){
@@ -15,6 +15,7 @@ if(result != null){
       // https://docs.oracle.com/javase/jp/7/api/java/lang/String.html#String(byte[],%20int,%20int)
       // https://docs.oracle.com/javase/jp/8/docs/api/java/lang/String.html#String-byte:A-int-int-
       // https://docs.oracle.com/javase/jp/9/docs/api/java/lang/String.html#String-byte:A-int-int-
+      // https://docs.oracle.com/javase/jp/10/docs/api/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
 
       if(redirectTo >= 8){
         var url =
