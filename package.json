@@ -1,0 +1,20 @@
+{
+  "name": "javaapi-redirector",
+  "version": "1.2.1",
+  "description": "Redirect to the latest Java SE API document.",
+  "main": "document.js",
+  "scripts": {
+    "test": "mocha document.test.js",
+    "build": "web-ext build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YujiSoftware/JavaAPI-Redirector.git"
+  },
+  "author": "YujiSoftware",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YujiSoftware/JavaAPI-Redirector/issues"
+  },
+  "homepage": "https://github.com/YujiSoftware/JavaAPI-Redirector#readme"
+}
