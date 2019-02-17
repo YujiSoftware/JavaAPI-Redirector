@@ -22,13 +22,8 @@
 
   "content_scripts": [
     {
-      "matches": ["*://docs.oracle.com/javase/*/docs/*"],
-      "js": ["document.js"],
-      "run_at": "document_start"
-    },
-    {
-      "matches": ["*://docs.oracle.com/javase/jp/*/api/*"],
-      "js": ["document-jp.js"],
+      "matches": ["*://docs.oracle.com/*"],
+      "js": ["search-index.js", "document.js"],
       "run_at": "document_start"
     }
   ],

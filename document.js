@@ -1,50 +1,86 @@
-var result = /^https?\:\/\/docs\.oracle\.com\/javase\/(6|7|8|9|10)\//.exec(window.location.href);
-if(result != null){
-  let version = result[1];
+// https://docs.oracle.com/javase/6/docs/api/java/lang/String.html#String(byte[],%20int,%20int)
+// https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#String(byte[],%20int,%20int)
+// https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#String-byte:A-int-int-
+// https://docs.oracle.com/javase/9/docs/api/java/lang/String.html#String-byte:A-int-int-
+// https://docs.oracle.com/javase/10/docs/api/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
+// https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
 
+// https://docs.oracle.com/javase/jp/6/api/java/lang/String.html#String(byte[],%20int,%20int)
+// https://docs.oracle.com/javase/jp/7/api/java/lang/String.html#String(byte[],%20int,%20int)
+// https://docs.oracle.com/javase/jp/8/api/java/lang/String.html#String-byte:A-int-int-
+// https://docs.oracle.com/javase/jp/8/docs/api/java/lang/String.html#String-byte:A-int-int-
+// https://docs.oracle.com/javase/jp/9/docs/api/java/lang/String.html#String-byte:A-int-int-
+// https://docs.oracle.com/javase/jp/10/docs/api/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
+// https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
+
+const paths = [
+  // English
+  { version: 6, language: "en", hasModule: false, prefix: "/javase/6/docs/api/" },
+  { version: 7, language: "en", hasModule: false, prefix: "/javase/7/docs/api/" },
+  { version: 8, language: "en", hasModule: false, prefix: "/javase/8/docs/api/" },
+  { version: 9, language: "en", hasModule: false, prefix: "/javase/9/docs/api/" },
+  { version: 10, language: "en", hasModule: false, prefix: "/javase/10/docs/api/" },
+  { version: 11, language: "en", hasModule: true, prefix: "/en/java/javase/11/docs/api/" },
+  // Japanese
+  { version: 6, language: "jp", hasModule: false, prefix: "/javase/jp/6/api/" },
+  { version: 7, language: "jp", hasModule: false, prefix: "/javase/jp/7/api/" },
+  { version: 8, language: "jp", hasModule: false, prefix: "/javase/jp/8/docs/api/" },
+  { version: 8, language: "jp", hasModule: false, prefix: "/javase/jp/8/api/" },  // See: https://yoshio3.com/2015/03/10/java-se-8-api-jp-doc-new-url/
+  { version: 9, language: "jp", hasModule: false, prefix: "/javase/jp/9/docs/api/" },
+  { version: 10, language: "jp", hasModule: false, prefix: "/javase/jp/10/docs/api/" },
+  { version: 11, language: "jp", hasModule: true, prefix: "/javase/jp/11/docs/api/" },
+];
+
+let javadoc = {
+  found: false,
+  version: -1,
+  language: "",
+  module: null,
+  route: "",
+  hash: ""
+};
+
+if(window.location.hostname === "docs.oracle.com"){
+  let path = paths.find(p => window.location.pathname.startsWith(p.prefix));
+  if(path !== undefined){
+    javadoc.found = true;
+    javadoc.version = path.version;
+    javadoc.language = path.language;
+    javadoc.hash = window.location.hash;
+
+    let route = window.location.pathname.substring(path.prefix.length);
+    let components = route.split("/");
+    if(path.hasModule && moduleSearchIndex.has(components[0])){
+      javadoc.module = components[0];
+      javadoc.route = components.slice(1).join("/");
+    }else{
+      javadoc.route = route;
+    }
+  }
+}
+
+if(javadoc.found){
   chrome.storage.sync.get({
     redirectTo: 'latest',
   }, function(items) {
-    var redirectTo = items.redirectTo;
+    let redirectTo = items.redirectTo;
     if(redirectTo === "latest"){
-      redirectTo = 10;
+      redirectTo = 11;
     }
 
-    if(version != redirectTo){
-      // https://docs.oracle.com/javase/6/docs/api/java/lang/String.html#String(byte[],%20int,%20int)
-      // https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#String(byte[],%20int,%20int)
-      // https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#String-byte:A-int-int-
-      // https://docs.oracle.com/javase/9/docs/api/java/lang/String.html#String-byte:A-int-int-
-      // https://docs.oracle.com/javase/10/docs/api/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
+    if(javadoc.version == redirectTo){
+      return;
+    }
 
-      if(redirectTo >= 8){
-        var url =
-          result.input
-            .replace(/^(https?\:\/\/docs\.oracle\.com\/javase\/)(?:6|7|8|9|10)\/(.*)/, `$1${redirectTo}/$2`)
-            .replace("#field_summary", "#field.summary")
-            .replace("#constructor_summary", "#constructor.summary")
-            .replace("#method_summary", "#method.summary")
-            .replace("#field_detail", "#field.detail")
-            .replace("#constructor_detail", "#constructor.detail")
-            .replace("#method_detail", "#method.detail")
-            .replace(/%20/g, "")
-            .replace(/\[\]/g, ":A")
-            .replace(/[\(\),]/g, "-");
-      
-        window.location.replace(url);
-      }else{
-        var url =
-          result.input
-            .replace(/^(https?\:\/\/docs\.oracle\.com\/javase\/)(?:6|7|8|9|10)\/(.*)/, `$1${redirectTo}/$2`)
-            .replace("#field.summary", "#field_summary")
-            .replace("#constructor.summary", "#constructor_summary")
-            .replace("#method.summary", "#method_summary")
-            .replace("#field.detail", "#field_detail")
-            .replace("#constructor.detail", "#constructor_detail")
-            .replace("#method.detail", "#method_detail");
-      
-        window.location.replace(url);
+    let newPath = paths.find(p => p.version == redirectTo && p.language == javadoc.language);
+    if(newPath.version >= 11){
+      let module = javadoc.module || packageSearchIndex[javadoc.route.split(/\//g).slice(0, -1).join(".")] || "";
+      if(module !== ""){
+        module += "/"
       }
+      window.location.replace(`https://docs.oracle.com${newPath.prefix}${module}${javadoc.route}${javadoc.hash}`);
+    }else{
+      window.location.replace(`https://docs.oracle.com${newPath.prefix}${javadoc.route}${javadoc.hash}`);
     }
   });
 }
