@@ -6,6 +6,7 @@
 // https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
 // https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
 // https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
+// https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
 
 // https://docs.oracle.com/javase/jp/6/api/java/lang/String.html#String(byte[],%20int,%20int)
 // https://docs.oracle.com/javase/jp/7/api/java/lang/String.html#String(byte[],%20int,%20int)
@@ -16,6 +17,7 @@
 // https://docs.oracle.com/javase/jp/11/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
 // https://docs.oracle.com/javase/jp/12/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
 // https://docs.oracle.com/javase/jp/13/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
+// https://docs.oracle.com/javase/jp/14/docs/api/java.base/java/lang/String.html#%3Cinit%3E(byte%5B%5D,int,int)
 
 const paths = [
   // English
@@ -27,6 +29,7 @@ const paths = [
   { version: 11, language: "en", hasModule: true, prefix: "/en/java/javase/11/docs/api/" },
   { version: 12, language: "en", hasModule: true, prefix: "/en/java/javase/12/docs/api/" },
   { version: 13, language: "en", hasModule: true, prefix: "/en/java/javase/13/docs/api/" },
+  { version: 14, language: "en", hasModule: true, prefix: "/en/java/javase/14/docs/api/" },
   // Japanese
   { version: 6, language: "jp", hasModule: false, prefix: "/javase/jp/6/api/" },
   { version: 7, language: "jp", hasModule: false, prefix: "/javase/jp/7/api/" },
@@ -36,7 +39,7 @@ const paths = [
   { version: 10, language: "jp", hasModule: false, prefix: "/javase/jp/10/docs/api/" },
   { version: 11, language: "jp", hasModule: true, prefix: "/javase/jp/11/docs/api/" },
   { version: 12, language: "jp", hasModule: true, prefix: "/javase/jp/12/docs/api/" },
-  { version: 13, language: "jp", hasModule: true, prefix: "/javase/jp/13/docs/api/" },
+  { version: 14, language: "jp", hasModule: true, prefix: "/javase/jp/14/docs/api/" },
 ];
 
 let javadoc = {
@@ -73,7 +76,7 @@ if(javadoc.found){
   }, function(items) {
     let redirectTo = items.redirectTo;
     if(redirectTo === "latest"){
-      redirectTo = 13;
+      redirectTo = 14;
     }
 
     if(javadoc.version == redirectTo){
