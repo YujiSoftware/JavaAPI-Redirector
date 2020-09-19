@@ -79,13 +79,20 @@ if(javadoc.found){
       redirectTo = 14;
     }
 
+    // Do not redirect packages removed from JDK11
+    // See: JEP 320 (Remove the Java EE and CORBA Modules)
+    const packageName = javadoc.route.split(/\//g).slice(0, -1).join(".");
+    if(removedPackageFromJdk11.has(packageName)){
+      redirectTo = Math.max(javadoc.version, 8);
+    }
+
     if(javadoc.version == redirectTo){
       return;
     }
 
     let newPath = paths.find(p => p.version == redirectTo && p.language == javadoc.language);
     if(newPath.version >= 11){
-      let module = javadoc.module || packageSearchIndex[javadoc.route.split(/\//g).slice(0, -1).join(".")] || "";
+      let module = javadoc.module || packageSearchIndex[packageName] || "";
       if(module !== ""){
         module += "/"
       }
