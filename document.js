@@ -40,6 +40,7 @@ const paths = [
   { version: 10, language: "jp", hasModule: false, prefix: "/javase/jp/10/docs/api/" },
   { version: 11, language: "jp", hasModule: true, prefix: "/javase/jp/11/docs/api/" },
   { version: 12, language: "jp", hasModule: true, prefix: "/javase/jp/12/docs/api/" },
+  { version: 13, language: "jp", hasModule: true, prefix: "/javase/jp/13/docs/api/" },
   { version: 14, language: "jp", hasModule: true, prefix: "/javase/jp/14/docs/api/" },
   { version: 15, language: "jp", hasModule: true, prefix: "/javase/jp/15/docs/api/" },
 ];
