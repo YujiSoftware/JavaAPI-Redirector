@@ -30,6 +30,7 @@ const paths = [
   { version: 12, language: "en", hasModule: true, prefix: "/en/java/javase/12/docs/api/" },
   { version: 13, language: "en", hasModule: true, prefix: "/en/java/javase/13/docs/api/" },
   { version: 14, language: "en", hasModule: true, prefix: "/en/java/javase/14/docs/api/" },
+  { version: 15, language: "en", hasModule: true, prefix: "/en/java/javase/15/docs/api/" },
   // Japanese
   { version: 6, language: "jp", hasModule: false, prefix: "/javase/jp/6/api/" },
   { version: 7, language: "jp", hasModule: false, prefix: "/javase/jp/7/api/" },
@@ -40,6 +41,7 @@ const paths = [
   { version: 11, language: "jp", hasModule: true, prefix: "/javase/jp/11/docs/api/" },
   { version: 12, language: "jp", hasModule: true, prefix: "/javase/jp/12/docs/api/" },
   { version: 14, language: "jp", hasModule: true, prefix: "/javase/jp/14/docs/api/" },
+  { version: 15, language: "jp", hasModule: true, prefix: "/javase/jp/15/docs/api/" },
 ];
 
 let javadoc = {
@@ -76,7 +78,7 @@ if(javadoc.found){
   }, function(items) {
     let redirectTo = items.redirectTo;
     if(redirectTo === "latest"){
-      redirectTo = 14;
+      redirectTo = 15;
     }
 
     // Do not redirect packages removed from JDK11
