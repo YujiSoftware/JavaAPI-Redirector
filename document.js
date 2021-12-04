@@ -46,6 +46,7 @@ const paths = [
   { version: 14, language: "jp", hasModule: true, prefix: "/javase/jp/14/docs/api/" },
   { version: 15, language: "jp", hasModule: true, prefix: "/javase/jp/15/docs/api/" },
   { version: 16, language: "jp", hasModule: true, prefix: "/javase/jp/16/docs/api/" },
+  { version: 17, language: "jp", hasModule: true, prefix: "/javase/jp/17/docs/api/" },
 ];
 
 let javadoc = {
@@ -83,7 +84,7 @@ if(javadoc.found){
     let redirectTo = items.redirectTo;
     if(redirectTo === "latest"){
       if (javadoc.language === "jp") {
-        redirectTo = 16;
+        redirectTo = 17;
       } else {
         redirectTo = 17; 
       }
