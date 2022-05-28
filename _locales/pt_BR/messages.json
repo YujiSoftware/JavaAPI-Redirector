@@ -1,0 +1,11 @@
+{
+  "extDescription": {
+    "message": "Redirecione para o documento mais recente da API Java SE."
+  },
+  "redirect_to": {
+    "message": "Java SE API Document version"
+  },
+  "latest": {
+    "message": "Latest"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "extDescription": {
+    "message": "إعادة التوجيه إلى أحدث مستند جافا سي أبي."
+  },
+  "redirect_to": {
+    "message": "Java SE API Document version"
+  },
+  "latest": {
+    "message": "Latest"
+  }
+}
