@@ -36,6 +36,7 @@ const paths = [
   { version: 18, language: "en", hasModule: true, prefix: "/en/java/javase/18/docs/api/" },
   { version: 19, language: "en", hasModule: true, prefix: "/en/java/javase/19/docs/api/" },
   { version: 20, language: "en", hasModule: true, prefix: "/en/java/javase/20/docs/api/" },
+  { version: 21, language: "en", hasModule: true, prefix: "/en/java/javase/21/docs/api/" },
   // Japanese
   { version: 6, language: "jp", hasModule: false, prefix: "/javase/jp/6/api/" },
   { version: 7, language: "jp", hasModule: false, prefix: "/javase/jp/7/api/" },
@@ -53,6 +54,7 @@ const paths = [
   { version: 18, language: "jp", hasModule: true, prefix: "/javase/jp/18/docs/api/" },
   { version: 19, language: "jp", hasModule: true, prefix: "/javase/jp/19/docs/api/" },
   { version: 20, language: "jp", hasModule: true, prefix: "/javase/jp/20/docs/api/" },
+  { version: 21, language: "jp", hasModule: true, prefix: "/javase/jp/21/docs/api/" },
 ];
 
 let javadoc = {
@@ -90,9 +92,9 @@ if(javadoc.found){
     let redirectTo = items.redirectTo;
     if(redirectTo === "latest"){
       if (javadoc.language === "jp") {
-        redirectTo = 20;
+        redirectTo = 21;
       } else {
-        redirectTo = 20; 
+        redirectTo = 21; 
       }
     }
 
