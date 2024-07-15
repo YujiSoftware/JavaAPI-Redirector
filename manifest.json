@@ -1,11 +1,11 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "JavaAPI-Redirector",
   "version": "1.3.13",
   "description": "__MSG_extDescription__",
   "default_locale": "en",
 
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "{592a7624-ad88-4d43-aec3-e940dcad653a}"
     }
@@ -29,7 +29,6 @@
   ],
 
   "options_ui": {
-    "page": "options.html",
-    "chrome_style": true
+    "page": "options.html"
   }
 }
