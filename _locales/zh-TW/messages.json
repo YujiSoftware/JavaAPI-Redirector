@@ -1,6 +1,6 @@
 {
   "extDescription": {
-    "message": "打開Java SE API文檔頁面時，重定向到最新版本。"
+    "message": "打開Java SE API文檔 (Javadoc) 頁面時，重定向到最新版本。"
   },
   "redirect_to": {
     "message": "Java SE API Document version"

@@ -1,6 +1,6 @@
 {
   "extDescription": {
-    "message": "最新の Java SE API ドキュメントにリダイレクトします."
+    "message": "最新の Java SE API ドキュメント (Javadoc) にリダイレクトします."
   },
   "redirect_to": {
     "message": "Java SE API ドキュメントのバージョン"

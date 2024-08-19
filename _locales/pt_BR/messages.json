@@ -1,6 +1,6 @@
 {
   "extDescription": {
-    "message": "Redirecione para o documento mais recente da API Java SE."
+    "message": "Redirecione para o documento mais recente da API Java SE (Javadoc) ."
   },
   "redirect_to": {
     "message": "Java SE API Document version"

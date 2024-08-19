@@ -1,6 +1,6 @@
 {
   "extDescription": {
-    "message": "При открытии страницы документа Java SE API перенаправьте на последнюю версию."
+    "message": "При открытии страницы документа Java SE API (Javadoc) перенаправьте на последнюю версию."
   },
   "redirect_to": {
     "message": "Java SE API Document version"

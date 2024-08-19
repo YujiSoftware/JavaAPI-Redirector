@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "JavaAPI-Redirector",
+  "name": "JavaAPI (Javadoc) Redirector",
   "version": "1.4.1",
   "description": "__MSG_extDescription__",
   "default_locale": "en",
