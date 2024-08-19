@@ -56,7 +56,7 @@ const paths = [
   { version: 19, language: "jp", hasModule: true, prefix: "/javase/jp/19/docs/api/" },
   { version: 20, language: "jp", hasModule: true, prefix: "/javase/jp/20/docs/api/" },
   { version: 21, language: "jp", hasModule: true, prefix: "/javase/jp/21/docs/api/" },
-  { version: 22, language: "jp", hasModule: true, prefix: "/javase/jp/21/docs/api/" },  // TODO: Changed at release
+  { version: 22, language: "jp", hasModule: true, prefix: "/javase/jp/22/docs/api/" },
 ];
 
 let javadoc = {
