@@ -93,11 +93,7 @@ if(javadoc.found){
   }, function(items) {
     let redirectTo = items.redirectTo;
     if(redirectTo === "latest"){
-      if (javadoc.language === "jp") {
-        redirectTo = 21;
-      } else {
-        redirectTo = 22;
-      }
+      redirectTo = paths.filter(p => p.language == javadoc.language).pop().version;
     }
 
     // Do not redirect packages removed from JDK11
