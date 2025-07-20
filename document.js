@@ -60,6 +60,7 @@ const paths = [
   { version: 21, language: "jp", hasModule: true, prefix: "/javase/jp/21/docs/api/" },
   { version: 22, language: "jp", hasModule: true, prefix: "/javase/jp/22/docs/api/" },
   { version: 23, language: "jp", hasModule: true, prefix: "/javase/jp/23/docs/api/" },
+  { version: 24, language: "jp", hasModule: true, prefix: "/javase/jp/24/docs/api/" },
 ];
 
 let javadoc = {
