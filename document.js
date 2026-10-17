@@ -42,6 +42,7 @@ const paths = [
   { version: 24, language: "en", hasModule: true, prefix: "/en/java/javase/24/docs/api/" },
   { version: 25, language: "en", hasModule: true, prefix: "/en/java/javase/25/docs/api/" },
   { version: 26, language: "en", hasModule: true, prefix: "/en/java/javase/26/docs/api/" },
+  { version: 27, language: "en", hasModule: true, prefix: "/en/java/javase/27/docs/api/" },
   // Japanese
   { version: 6, language: "jp", hasModule: false, prefix: "/javase/jp/6/api/" },
   { version: 7, language: "jp", hasModule: false, prefix: "/javase/jp/7/api/" },
